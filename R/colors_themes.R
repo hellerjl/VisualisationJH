@@ -22,11 +22,11 @@
 #' library(ggplot2)
 #' ggplot(Pima_data) + geom_point(aes(x=bmi,y=glucose)) + ggtitle("Plot title") + theme_JH()
 #'
-theme_JH <- function(base_size = 14, base_family = "serif") {
-  (ggplot2::theme_grey(base_size = base_size, base_family = base_family) +
+theme_JH <- function(base_size = 14, base_family = "sans") {
+  ggplot2::theme_grey(base_size = base_size, base_family = base_family) +
     ggplot2::theme(
       plot.title = ggplot2::element_text(
-        base_family,
+        family = base_family,
         face = "bold",
         color = 'black',
         hjust = 0.5,
@@ -38,7 +38,7 @@ theme_JH <- function(base_size = 14, base_family = "serif") {
         colour = 'white'
       ),
       axis.title = ggplot2::element_text(
-        base_family,
+        family = base_family,
         face = "bold",
         size = ggplot2::rel(1.1),
         hjust = 0.5
@@ -48,15 +48,22 @@ theme_JH <- function(base_size = 14, base_family = "serif") {
         fill = '#f9f9f9',
         colour = 'black'
       ),
-      legend.text = ggplot2::element_text(base_family, hjust = 0.5),
+      legend.text = ggplot2::element_text(family = base_family, hjust = 0.5),
       legend.title = ggplot2::element_text(
-        base_family,
+        family = base_family,
         face = "bold",
+        size = ggplot2::rel(1.0),
         hjust = 0.5
       ),
-      legend.key.size = grid::unit(1, "line"),
-      plot.margin = grid::unit(c(.5, .5, .5, .5), "cm")
-    ))
+      legend.key.size = grid::unit(base_size / 14, "lines"),
+      plot.margin = ggplot2::margin(
+        t = base_size * 0.5,
+        r = base_size * 0.5,
+        b = base_size * 0.5,
+        l = base_size * 0.5,
+        unit = "pt"
+      )
+    )
 }
 
 #####################################################################################

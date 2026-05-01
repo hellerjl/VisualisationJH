@@ -8,7 +8,7 @@ Authors@R:
         email = "joel.heller58@gmail.com",
         role = c("aut", "cre")
     )
-Description: Visualisation tools by JH. 
+Description: Visualisation tools to speed up coding by JH. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
